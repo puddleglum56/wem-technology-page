@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alter Geo - The Future of Augmented Reality</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0a0a;
+            color: #e5e7eb;
+        }
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+        .section-card {
+            background-color: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(55, 65, 81, 0.3);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .glow-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(29, 78, 216, 0.3) 0%, rgba(10, 10, 10, 0) 60%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <canvas id="bg-canvas"></canvas>
+    <div class="glow-effect"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-10 bg-black/30 backdrop-blur-md">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold tracking-tighter text-white">ALTER GEO</h1>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#inicio" class="text-gray-300 hover:text-white transition-colors" data-translate-key="nav-home">Home</a>
+                <a href="#tecnologia" class="text-gray-300 hover:text-white transition-colors" data-translate-key="nav-tech">Technology</a>
+                <a href="#producto" class="text-gray-300 hover:text-white transition-colors" data-translate-key="nav-product">Product</a>
+                <a href="#fundador" class="text-gray-300 hover:text-white transition-colors" data-translate-key="nav-founder">Founder</a>
+                <!-- Language Switcher -->
+                <div class="flex items-center space-x-2 text-sm text-gray-300">
+                    <span>ES</span>
+                    <label for="lang-switcher" class="relative inline-flex items-center cursor-pointer">
+                        <input type="checkbox" id="lang-switcher" class="sr-only peer">
+                        <div class="w-11 h-6 bg-gray-600 rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-0.5 after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+                    </label>
+                    <span>EN</span>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="relative z-0 container mx-auto px-6">
+        
+        <!-- Hero Section -->
+        <section id="inicio" class="min-h-screen flex flex-col justify-center items-center text-center">
+            <h2 class="text-5xl md:text-7xl font-black tracking-tighter text-white mb-4 leading-tight" data-translate-key="hero-h2">Building the Infrastructure<br>for the Next Generation of the Internet</h2>
+            <p class="text-xl md:text-2xl text-gray-400 max-w-3xl" data-translate-key="hero-p">A persistent, shared, planet-scale Augmented Reality layer, built by the community.</p>
+            <div class="mt-8">
+                <a href="https://www.linkedin.com/in/liam-mcfadden/" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full transition-transform transform hover:scale-105 inline-block" data-translate-key="hero-cta">
+                    Contact
+                </a>
+            </div>
+        </section>
+
+        <!-- Technology Section -->
+        <section id="tecnologia" class="py-20">
+            <div class="section-card max-w-4xl mx-auto">
+                <h3 class="text-3xl font-bold text-center mb-2 text-white" data-translate-key="tech-h3">Proprietary Technology: Visual Positioning System (VPS)</h3>
+                <p class="text-center text-blue-300 mb-8" data-translate-key="tech-subtitle">Centimeter-level precision to anchor the digital world to ours.</p>
+                <p class="text-lg text-gray-300 leading-relaxed" data-translate-key="tech-p1">
+                    Alter Geo's core technology is a proprietary Visual Positioning System (VPS), developed entirely in-house. Our VPS determines a device's position and orientation with centimeter-level accuracy using only its camera. This allows us to anchor Augmented Reality (AR) content to specific physical locations persistently and shared across multiple users.
+                </p>
+                <p class="mt-4 text-lg text-gray-300 leading-relaxed" data-translate-key="tech-p2">
+                    This capability overcomes the limitations of conventional AR, which does not allow for synchronized multi-user experiences or precise interactions with the environment, opening a new paradigm for tourism, culture, and beyond.
+                </p>
+            </div>
+        </section>
+
+        <!-- Product Section -->
+        <section id="producto" class="py-20">
+            <h3 class="text-4xl font-bold text-center mb-12 text-white" data-translate-key="product-h3">A Symbiotic Business Model</h3>
+            <div class="grid md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+                <div class="section-card">
+                    <h4 class="text-2xl font-bold mb-4 text-white" data-translate-key="product-b2c-h4">Mescape (B2C): The Game that Builds the World</h4>
+                    <p class="text-gray-300 mb-4" data-translate-key="product-b2c-p1">
+                        Our B2C product is Mescape, the first geospatial MMORPG in a persistent, shared AR world. The game mechanics incentivize players to scan and map their real environment.
+                    </p>
+                    <p class="text-gray-300" data-translate-key="product-b2c-p2">
+                        Every space scanned by a player organically expands our main data asset: a global 3D map. This way, we turn the game into the data acquisition engine.
+                    </p>
+                </div>
+                <div class="section-card">
+                    <h4 class="text-2xl font-bold mb-4 text-white" data-translate-key="product-b2b-h4">Alter Geo Platform (B2B): The Monetizable Infrastructure</h4>
+                    <p class="text-gray-300 mb-4" data-translate-key="product-b2b-p1">
+                        The global 3D map, built by the Mescape community, is the asset that powers our B2B platform. We license this infrastructure to companies and developers via an API.
+                    </p>
+                    <p class="text-gray-300" data-translate-key="product-b2b-p2">
+                        This allows third parties to create large-scale AR applications (advertising, tourism, logistics) without the multi-million dollar investment of building their own mapping infrastructure.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Founder Section -->
+        <section id="fundador" class="py-20">
+            <div class="section-card max-w-4xl mx-auto text-center">
+                <h3 class="text-3xl font-bold mb-4 text-white" data-translate-key="founder-h3">Founder and Vision</h3>
+                <img src="https://media.licdn.com/dms/image/D4E03AQGg7_G0y0x2zQ/profile-displayphoto-shrink_400_400/0/1689710352920?e=1732320000&v=beta&t=7lUqC-hB4J2i9d_4S1p3GgK5r6t8wXyZ3f0z9h7J8kY" 
+                     onerror="this.onerror=null;this.src='https://placehold.co/128x128/1f2937/ffffff?text=WM';"
+                     alt="William McFadden" class="w-32 h-32 rounded-full mx-auto mb-6 border-4 border-blue-500">
+                <h4 class="text-2xl font-bold text-white" data-translate-key="founder-name">William McFadden</h4>
+                <p class="text-blue-300 mb-4" data-translate-key="founder-title">Founder & CEO</p>
+                <p class="text-lg text-gray-300 leading-relaxed max-w-2xl mx-auto" data-translate-key="founder-p">
+                    William is a technical founder with over eight years of experience in product leadership and full-stack engineering. His unique combination of deep technical knowledge and business acumen allowed him to identify a critical gap in the AR market. His commitment is demonstrated by his decision to dedicate himself full-time to Alter Geo, developing the core VPS technology in just two months.
+                </p>
+                <div class="mt-8">
+                    <a href="https://www.linkedin.com/in/liam-mcfadden/" target="_blank" class="text-blue-400 hover:text-blue-300 text-lg font-semibold transition-colors" data-translate-key="founder-cta">
+                        Connect on LinkedIn &rarr;
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="text-center py-10 border-t border-gray-800">
+        <p class="text-gray-500" data-translate-key="footer-copy">&copy; 2025 Alter Geo | altergeo.world</p>
+    </footer>
+
+    <script>
+        // --- TRANSLATION SCRIPT ---
+        const translations = {
+            'page-title': {
+                en: 'Alter Geo - The Future of Augmented Reality',
+                es: 'Alter Geo - El Futuro de la Realidad Aumentada'
+            },
+            'nav-home': { en: 'Home', es: 'Inicio' },
+            'nav-tech': { en: 'Technology', es: 'Tecnología' },
+            'nav-product': { en: 'Product', es: 'Producto' },
+            'nav-founder': { en: 'Founder', es: 'Fundador' },
+            'hero-h2': {
+                en: 'Building the Infrastructure<br>for the Next Generation of the Internet',
+                es: 'Construyendo la Infraestructura<br>para la Próxima Generación de Internet'
+            },
+            'hero-p': {
+                en: 'A persistent, shared, planet-scale Augmented Reality layer, built by the community.',
+                es: 'Una capa de Realidad Aumentada persistente, compartida y a escala planetaria, construida por la comunidad.'
+            },
+            'hero-cta': { en: 'Contact', es: 'Contactar' },
+            'tech-h3': {
+                en: 'Proprietary Technology: Visual Positioning System (VPS)',
+                es: 'Tecnología Propia: Visual Positioning System (VPS)'
+            },
+            'tech-subtitle': {
+                en: 'Centimeter-level precision to anchor the digital world to ours.',
+                es: 'Precisión centimétrica para anclar el mundo digital al nuestro.'
+            },
+            'tech-p1': {
+                en: "Alter Geo's core technology is a proprietary Visual Positioning System (VPS), developed entirely in-house. Our VPS determines a device's position and orientation with centimeter-level accuracy using only its camera. This allows us to anchor Augmented Reality (AR) content to specific physical locations persistently and shared across multiple users.",
+                es: 'La tecnología principal de Alter Geo es un Sistema de Posicionamiento Visual (VPS) propietario, desarrollado íntegramente a nivel interno. Nuestro VPS determina la posición y orientación de un dispositivo con precisión centimétrica utilizando únicamente su cámara. Esto nos permite anclar contenido de Realidad Aumentada (AR) a ubicaciones físicas específicas de forma persistente y compartida por múltiples usuarios.'
+            },
+            'tech-p2': {
+                en: 'This capability overcomes the limitations of conventional AR, which does not allow for synchronized multi-user experiences or precise interactions with the environment, opening a new paradigm for tourism, culture, and beyond.',
+                es: 'Esta capacidad supera las limitaciones de la AR convencional, que no permite experiencias multiusuario sincronizadas ni interacciones precisas con el entorno, abriendo un nuevo paradigma para el turismo, la cultura y más allá.'
+            },
+            'product-h3': {
+                en: 'A Symbiotic Business Model',
+                es: 'Un Modelo de Negocio Simbiótico'
+            },
+            'product-b2c-h4': {
+                en: 'Mescape (B2C): The Game that Builds the World',
+                es: 'Mescape (B2C): El Juego que Construye el Mundo'
+            },
+            'product-b2c-p1': {
+                en: 'Our B2C product is Mescape, the first geospatial MMORPG in a persistent, shared AR world. The game mechanics incentivize players to scan and map their real environment.',
+                es: 'Nuestro producto B2C es Mescape, el primer MMORPG geoespacial en un mundo de AR persistente y compartido. La mecánica del juego incentiva a los jugadores a escanear y mapear su entorno real.'
+            },
+            'product-b2c-p2': {
+                en: 'Every space scanned by a player organically expands our main data asset: a global 3D map. This way, we turn the game into the data acquisition engine.',
+                es: 'Cada espacio escaneado por un jugador expande orgánicamente nuestro activo de datos principal: un mapa 3D global. De esta manera, convertimos el juego en el motor de adquisición de datos.'
+            },
+            'product-b2b-h4': {
+                en: 'Alter Geo Platform (B2B): The Monetizable Infrastructure',
+                es: 'Plataforma Alter Geo (B2B): La Infraestructura Monetizable'
+            },
+            'product-b2b-p1': {
+                en: 'The global 3D map, built by the Mescape community, is the asset that powers our B2B platform. We license this infrastructure to companies and developers via an API.',
+                es: 'El mapa 3D global, construido por la comunidad de Mescape, es el activo que alimenta nuestra plataforma B2B. Licenciamos esta infraestructura a empresas y desarrolladores a través de una API.'
+            },
+            'product-b2b-p2': {
+                en: 'This allows third parties to create large-scale AR applications (advertising, tourism, logistics) without the multi-million dollar investment of building their own mapping infrastructure.',
+                es: 'Esto permite a terceros crear aplicaciones de AR a gran escala (publicidad, turismo, logística) sin la inversión millonaria de construir su propia infraestructura de mapeo.'
+            },
+            'founder-h3': {
+                en: 'Founder and Vision',
+                es: 'Fundador y Visión'
+            },
+            'founder-name': {
+                en: 'William McFadden',
+                es: 'William McFadden'
+            },
+            'founder-title': {
+                en: 'Founder & CEO',
+                es: 'Fundador y CEO'
+            },
+            'founder-p': {
+                en: 'William is a technical founder with over eight years of experience in product leadership and full-stack engineering. His unique combination of deep technical knowledge and business acumen allowed him to identify a critical gap in the AR market. His commitment is demonstrated by his decision to dedicate himself full-time to Alter Geo, developing the core VPS technology in just two months.',
+                es: 'William es un fundador técnico con más de ocho años de experiencia en liderazgo de producto e ingeniería full-stack. Su combinación única de profundo conocimiento técnico y visión para los negocios le permitió identificar una brecha crítica en el mercado de la AR. Su compromiso queda patente en su decisión de dedicarse a tiempo completo a Alter Geo, desarrollando la tecnología fundamental del VPS en solo dos meses.'
+            },
+            'founder-cta': {
+                en: 'Connect on LinkedIn &rarr;',
+                es: 'Conectar en LinkedIn &rarr;'
+            },
+            'footer-copy': {
+                en: '&copy; 2025 Alter Geo | altergeo.world',
+                es: '&copy; 2025 Alter Geo | altergeo.world'
+            }
+        };
+
+        const langSwitcher = document.getElementById('lang-switcher');
+
+        function setLanguage(lang) {
+            document.documentElement.lang = lang;
+            document.querySelectorAll('[data-translate-key]').forEach(element => {
+                const key = element.getAttribute('data-translate-key');
+                if (translations[key] && translations[key][lang]) {
+                    element.innerHTML = translations[key][lang];
+                }
+            });
+            document.title = translations['page-title'][lang];
+        }
+
+        langSwitcher.addEventListener('change', () => {
+            if (langSwitcher.checked) {
+                setLanguage('en');
+            } else {
+                setLanguage('es');
+            }
+        });
+        
+        // Set default language to English on page load
+        setLanguage('en');
+        langSwitcher.checked = true;
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // --- THREE.JS BACKGROUND ANIMATION ---
+        let scene, camera, renderer, points, floatingObjects = [];
+        const canvas = document.getElementById('bg-canvas');
+
+        function init() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 5;
+
+            renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x000000, 0);
+
+            const vertices = [];
+            for (let i = 0; i < 15000; i++) {
+                const x = (Math.random() - 0.5) * 50;
+                const y = (Math.random() - 0.5) * 50;
+                const z = (Math.random() - 0.5) * 50;
+                vertices.push(x, y, z);
+            }
+
+            const geometry = new THREE.BufferGeometry();
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            const material = new THREE.PointsMaterial({
+                color: 0x3b82f6,
+                size: 0.02
+            });
+            points = new THREE.Points(geometry, material);
+            scene.add(points);
+
+            for (let i = 0; i < 5; i++) {
+                const geo = new THREE.BoxGeometry(Math.random() * 0.5 + 0.2, Math.random() * 0.5 + 0.2, Math.random() * 0.5 + 0.2);
+                const mat = new THREE.MeshBasicMaterial({ color: 0xffffff, wireframe: true });
+                const cube = new THREE.Mesh(geo, mat);
+                cube.position.set((Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10, (Math.random() - 0.5) * 10);
+                cube.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+                scene.add(cube);
+                floatingObjects.push(cube);
+            }
+            
+            window.addEventListener('resize', onWindowResize, false);
+            document.addEventListener('mousemove', onMouseMove, false);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        let mouseX = 0, mouseY = 0;
+        function onMouseMove(event) {
+            mouseX = (event.clientX - window.innerWidth / 2) / 100;
+            mouseY = (event.clientY - window.innerHeight / 2) / 100;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+            const time = Date.now() * 0.0001;
+            camera.position.x += (mouseX - camera.position.x) * 0.05;
+            camera.position.y += (-mouseY - camera.position.y) * 0.05;
+            camera.lookAt(scene.position);
+            points.rotation.x = time * 0.2;
+            points.rotation.y = time * 0.2;
+            floatingObjects.forEach(obj => {
+                obj.rotation.x += 0.001;
+                obj.rotation.y += 0.002;
+            });
+            renderer.render(scene, camera);
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>
